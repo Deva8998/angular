@@ -1,24 +1,42 @@
-//Javascript is an intepreted language
-// Javascript is not a strictly typed language [No Data types definition before hand]
-// Javascript supports number, string and boolean scalar types
-// literals  - for boolean  we true for true, false for false
-// literals - for string we can either enclose the string with single or double quote
-// variables that are declared in a js file directly not part of functions is
-//considered global, it will be available through out the file
- // no data type specification a is variable 90 is numeric literal
+data = {
+    services:[
+    {
+        name: "Application Services",
+        image: "images/application.png",
+        features: ["Latest Technology", "Micro Service Architectiure"
+         ,"Cloud Native","Test Driven Development"]
+    },
+    {
+        name: "Testing Services",
+        image: "images/testing.png",
+        features: ["End to End Testing", "Performance Analysis"
+         ,"Quality Assurance","Powerful tools"]
+    },
+    {
+        name: "Infrastructure Services",
+        image: "images/infrastructure.png",
+        features: ["Cloud Services", "Low Cost"
+         ,"Premium Hardware","High Performance"]
+    }
 
+]
+}
+let code =""
 
+for(let service of data.services){
+    code+= "<div class='service-box'>"
+    code+="<h3>"+service.name+"</h3>"
+    code+="<img src='"+service.image+"'>"
+    code+="<div class='features'> <ul>"
+    for(let feature of service.features){
+        code+="<li>"+feature+"</li>"
+    }
+    code+="</ul></div></div>"
+}
 
+document.getElementById("services-wrapper").innerHTML=code
 
-
-
-
-a=9
-b=true
-c="deva"
-d=5.09
-console.log(a,b,c,d)
-console.log("a's data type: ", typeof(a))
-console.log("b's data type: ", typeof(b))
-console.log("c's data type: ", typeof(c))
-console.log("d's data type: ", typeof(d))
+function featureli(select){
+    alert(select)
+}
+document.getElementsByClassName('features').innerHTML=code
