@@ -1,0 +1,38 @@
+<div id="header" [ngStyle]="currentTheme" >
+    <h1 [ngClass]="currentHeaderClass.className" [style.color]="hfont"> {{  title }}
+        <input type="color" [(ngModel)]="hfont">
+    </h1>
+    <div id="themes">
+        <ul>
+            <li *ngFor="let n of themes; let y=index" (click)="changeTheme(y)"> {{n}} </li>
+      <!-- <li *ngFor="let x of [0,1,2] (click)="changeTheme(x)>{{themes[x]}}</li>"-->  
+        </ul>
+    </div>
+
+    
+    
+    <div id="select-box" >
+        <select [(ngModel)]="currentHeaderClass">
+            <option *ngFor="let x of headerClasses" [ngValue]="x">
+                {{x.displayName}}</option>
+        </select>
+      
+    </div>
+</div>
+
+<div id="message-area" [ngStyle]="currentTheme"
+ [style.padding]="'30px'" 
+ [style.marginTop]="'15px'"
+>
+    <h3 [style.textAlign]="'center'">{{message}}</h3> 
+</div>
+
+<div id="content-area">
+    <app-box *ngFor="let x of services" [boxtheme]="currentTheme"
+    [title]="x"
+    (featureClick) ="receiveFromChild($event)" ></app-box>
+   <!--  <app-box></app-box>
+     <app-box></app-box>
+     <app-box></app-box> -->
+</div>
+<app-footer [ftheme]="currentTheme"></app-footer>
